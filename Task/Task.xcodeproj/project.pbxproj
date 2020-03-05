@@ -13,6 +13,7 @@
 		AC96FA4A2410744900ACCD4F /* Task+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC96FA492410744900ACCD4F /* Task+Convenience.swift */; };
 		AC96FA4C241077B200ACCD4F /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC96FA4B241077B200ACCD4F /* TaskController.swift */; };
 		AC96FA4E2411B56600ACCD4F /* DateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC96FA4D2411B56600ACCD4F /* DateHelpers.swift */; };
+		AC96FA502411C71200ACCD4F /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC96FA4F2411C71200ACCD4F /* ButtonTableViewCell.swift */; };
 		FB4BD1A7237A1D88006648A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4BD1A6237A1D88006648A7 /* AppDelegate.swift */; };
 		FB4BD1A9237A1D88006648A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4BD1A8237A1D88006648A7 /* SceneDelegate.swift */; };
 		FB4BD1AE237A1D88006648A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB4BD1AC237A1D88006648A7 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 		AC96FA492410744900ACCD4F /* Task+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Convenience.swift"; sourceTree = "<group>"; };
 		AC96FA4B241077B200ACCD4F /* TaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
 		AC96FA4D2411B56600ACCD4F /* DateHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelpers.swift; sourceTree = "<group>"; };
+		AC96FA4F2411C71200ACCD4F /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
 		FB4BD1A3237A1D88006648A7 /* Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Task.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB4BD1A6237A1D88006648A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB4BD1A8237A1D88006648A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 			children = (
 				AC96FA43241070E500ACCD4F /* TaskListTableViewController.swift */,
 				AC96FA452410727000ACCD4F /* TaskDetailTableViewController.swift */,
+				AC96FA4F2411C71200ACCD4F /* ButtonTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				AC96FA482410729F00ACCD4F /* CoreDataStack.swift in Sources */,
 				AC96FA462410727000ACCD4F /* TaskDetailTableViewController.swift in Sources */,
 				AC96FA4C241077B200ACCD4F /* TaskController.swift in Sources */,
+				AC96FA502411C71200ACCD4F /* ButtonTableViewCell.swift in Sources */,
 				FB4BD1A9237A1D88006648A7 /* SceneDelegate.swift in Sources */,
 				AC96FA4E2411B56600ACCD4F /* DateHelpers.swift in Sources */,
 			);

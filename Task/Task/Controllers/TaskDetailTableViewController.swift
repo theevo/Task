@@ -13,16 +13,19 @@ class TaskDetailTableViewController: UITableViewController {
     // MARK: - Properties
     
     // Landing Pad
-    var taskLandingPad: Task?
+    var taskLandingPad: Task? {
+        didSet {
+            updateViews()
+        }
+    }
     var dueDateValue: Date?
-    
     
     // MARK: - Outlets
     
-    @IBOutlet weak var taskNameTextLabel: UITextField!
+    @IBOutlet weak var taskNameTextField: UITextField!
     @IBOutlet weak var taskNotesTextView: UITextView!
-    @IBOutlet weak var dueDateTextLabel: UITextField!
-    
+    @IBOutlet weak var dueDateTextField: UITextField!
+    @IBOutlet var dueDatePicker: UIDatePicker!
     
     
     // MARK: - Lifecycle Functions
@@ -30,12 +33,17 @@ class TaskDetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        //Creating out tap gesture
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(userTappedView))
+        //adding our tap gesture to our view
+        self.view.addGestureRecognizer(tapGesture)
     }
+    
     
     // MARK: - Action functions
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-        let newTaskName = taskNameTextLabel.text ?? ""
+        let newTaskName = taskNameTextField.text ?? ""
         
         // if there's something on the landing pad, update
         if let task = taskLandingPad {
@@ -50,13 +58,26 @@ class TaskDetailTableViewController: UITableViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
+        dueDateValue = dueDatePicker.date
+        dueDateTextField.text = dueDateValue?.stringValue()
+    }
+    
+    @objc func userTappedView() {
+        taskNameTextField.resignFirstResponder()
+        taskNotesTextView.resignFirstResponder()
+        dueDateTextField.resignFirstResponder()
+    }
+    
+    
     // MARK: - Helper Functions
     
     func updateViews() {
         guard let taskToDisplay = taskLandingPad else {return}
-        taskNameTextLabel.text = taskToDisplay.name
+        taskNameTextField.text = taskToDisplay.name
         taskNotesTextView.text = taskToDisplay.notes
-        dueDateTextLabel.text = taskToDisplay.due?.stringValue()
+        dueDateTextField.text = taskToDisplay.due?.stringValue()
+        dueDateTextField.inputView = dueDatePicker
     }
     
 } // end class
