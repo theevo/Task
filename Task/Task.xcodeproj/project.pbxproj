@@ -51,12 +51,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AC96FA42241070C100ACCD4F /* Controllers */ = {
+		AC6A4FC524187AC400D684CE /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				AC96FA4F2411C71200ACCD4F /* ButtonTableViewCell.swift */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
+		AC6A4FC724187B1400D684CE /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AC96FA4B241077B200ACCD4F /* TaskController.swift */,
+			);
+			path = "Model Controller";
+			sourceTree = "<group>";
+		};
+		AC6A4FC824187B2200D684CE /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				AC96FA43241070E500ACCD4F /* TaskListTableViewController.swift */,
 				AC96FA452410727000ACCD4F /* TaskDetailTableViewController.swift */,
-				AC96FA4F2411C71200ACCD4F /* ButtonTableViewCell.swift */,
+				AC6A4FC524187AC400D684CE /* SubView */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		AC96FA42241070C100ACCD4F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AC6A4FC824187B2200D684CE /* View Controllers */,
+				AC6A4FC724187B1400D684CE /* Model Controller */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -107,7 +132,6 @@
 				FB4BD1AF237A1D88006648A7 /* Task.xcdatamodeld */,
 				AC96FA472410729F00ACCD4F /* CoreDataStack.swift */,
 				AC96FA492410744900ACCD4F /* Task+Convenience.swift */,
-				AC96FA4B241077B200ACCD4F /* TaskController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

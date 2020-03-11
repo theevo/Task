@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Salty Task Intern-->
+        <!--Salty Intern doesn't want your stupid tasks-->
         <scene sceneID="603-9J-pnm">
             <objects>
                 <tableViewController id="b6U-C5-aid" customClass="TaskListTableViewController" customModule="Task" customModuleProvider="target" sceneMemberID="viewController">
@@ -15,31 +15,57 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="taskCell" textLabel="ugh-gB-Udx" detailTextLabel="Mtf-jV-J6q" style="IBUITableViewCellStyleSubtitle" id="o0i-D4-fkl" customClass="ButtonTableViewCell" customModule="Task" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="taskCell" rowHeight="66" id="nHB-sV-FsJ" customClass="ButtonTableViewCell" customModule="Task" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="66"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o0i-D4-fkl" id="4VF-9c-bME">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nHB-sV-FsJ" id="Oiz-Nn-Nfk">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Kick Nathan off the couch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ugh-gB-Udx">
-                                            <rect key="frame" x="20" y="10" width="199" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mtf-jV-J6q">
-                                            <rect key="frame" x="20" y="31.5" width="34" height="14.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="RZa-s7-Ih5">
+                                            <rect key="frame" x="20" y="0.5" width="221" height="65"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Kick Nathan off the couch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2a0-38-Z0Z">
+                                                    <rect key="frame" x="0.0" y="0.0" width="221" height="48"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yn3-K4-cK9">
+                                                    <rect key="frame" x="0.0" y="48" width="39" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9L-42-1KJ">
+                                            <rect key="frame" x="361" y="16.5" width="33" height="33"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="m9L-42-1KJ" secondAttribute="height" multiplier="1:1" id="Sft-qC-niL"/>
+                                                <constraint firstAttribute="width" constant="33" id="mLU-tH-hto"/>
+                                            </constraints>
+                                            <state key="normal" title="Button" image="incomplete"/>
+                                            <connections>
+                                                <action selector="checkboxTapped:" destination="nHB-sV-FsJ" eventType="touchUpInside" id="KBh-EE-70j"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="RZa-s7-Ih5" firstAttribute="leading" secondItem="Oiz-Nn-Nfk" secondAttribute="leading" constant="20" symbolic="YES" id="xpP-jx-07s"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="m9L-42-1KJ" secondAttribute="trailing" constant="20" id="FFb-MV-MQf"/>
+                                    <constraint firstItem="m9L-42-1KJ" firstAttribute="centerY" secondItem="nHB-sV-FsJ" secondAttribute="centerY" id="HHh-V4-UyD"/>
+                                    <constraint firstItem="RZa-s7-Ih5" firstAttribute="centerY" secondItem="nHB-sV-FsJ" secondAttribute="centerY" id="jCb-CD-rzU"/>
+                                </constraints>
                                 <connections>
-                                    <segue destination="drr-mE-DxA" kind="show" identifier="toTaskDetail" id="3ey-IK-nFF"/>
+                                    <outlet property="checkboxButton" destination="m9L-42-1KJ" id="a09-F4-6bq"/>
+                                    <outlet property="dueDateLabel" destination="yn3-K4-cK9" id="bR0-PD-M8s"/>
+                                    <outlet property="taskNameLabel" destination="2a0-38-Z0Z" id="BiD-2B-ZIa"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -48,7 +74,7 @@
                             <outlet property="delegate" destination="b6U-C5-aid" id="NqR-QT-6AB"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Salty Task Intern" id="CAR-DM-FaV">
+                    <navigationItem key="navigationItem" title="Salty Intern doesn't want your stupid tasks" id="CAR-DM-FaV">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xDy-cw-ZLE">
                             <connections>
                                 <segue destination="drr-mE-DxA" kind="show" id="e7c-gg-2Py"/>
@@ -58,7 +84,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WW5-pQ-yUd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="574" y="11"/>
+            <point key="canvasLocation" x="573.91304347826087" y="10.714285714285714"/>
         </scene>
         <!--Task Detail Table View Controller-->
         <scene sceneID="KRt-zh-SSs">
@@ -210,7 +236,7 @@
             <point key="canvasLocation" x="-345" y="11"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="e7c-gg-2Py"/>
-    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="incomplete" width="512" height="512"/>
+    </resources>
 </document>

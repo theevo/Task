@@ -25,12 +25,16 @@ class TaskListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath)
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as? ButtonTableViewCell else { return UITableViewCell() }
         
         let task = TaskController.sharedInstance.tasks[indexPath.row]
+        
+        cell.setTask(task: task)
+        cell.delegate = self
 
-        cell.textLabel?.text = task.name
-        cell.detailTextLabel?.text = task.dueDateAsString
+//        cell.textLabel?.text = task.name
+//        cell.detailTextLabel?.text = task.dueDateAsString
 
         return cell
     }
@@ -86,4 +90,8 @@ class TaskListTableViewController: UITableViewController {
     }
     
 
+} // end class
+
+extension TaskListTableViewController: ButtonTableViewCellDelegate {
+    
 }
