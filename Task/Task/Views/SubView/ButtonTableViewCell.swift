@@ -35,6 +35,7 @@ class ButtonTableViewCell: UITableViewCell {
     
     func setTask(task: Task){
         self.task = task
+        updateUI()
     }
     
     func updateUI() {
