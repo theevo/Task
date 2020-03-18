@@ -72,9 +72,16 @@
 			children = (
 				AC96FA43241070E500ACCD4F /* TaskListTableViewController.swift */,
 				AC96FA452410727000ACCD4F /* TaskDetailTableViewController.swift */,
-				AC6A4FC524187AC400D684CE /* SubView */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		AC6E96682421832A00A715BA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AC6A4FC524187AC400D684CE /* SubView */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		AC96FA42241070C100ACCD4F /* Controllers */ = {
@@ -105,6 +112,7 @@
 		FB4BD1A5237A1D88006648A7 /* Task */ = {
 			isa = PBXGroup;
 			children = (
+				AC6E96682421832A00A715BA /* Views */,
 				AC96FA42241070C100ACCD4F /* Controllers */,
 				FB4BD1BE237A1E0B006648A7 /* Model */,
 				FB4BD1BF237A1E11006648A7 /* Storyboards */,

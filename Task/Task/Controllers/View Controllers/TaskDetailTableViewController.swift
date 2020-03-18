@@ -47,9 +47,9 @@ class TaskDetailTableViewController: UITableViewController {
         
         // if there's something on the landing pad, update
         if let task = taskLandingPad {
-            TaskController.sharedInstance.update(task: task, name: newTaskName, notes: taskNotesTextView.text, due: Date())
+            TaskController.shared.update(task: task, name: newTaskName, notes: taskNotesTextView.text, due: Date())
         } else { // else, add new Task
-            TaskController.sharedInstance.add(taskWithName: newTaskName, notes: taskNotesTextView.text, due: Date())
+            TaskController.shared.add(taskWithName: newTaskName, notes: taskNotesTextView.text, due: Date())
         }
         navigationController?.popViewController(animated: true)
     }

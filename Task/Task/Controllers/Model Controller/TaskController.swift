@@ -7,33 +7,43 @@
 //
 
 import Foundation
+import CoreData
 
 class TaskController {
     
     // MARK: - Properties
     
     // singleton
-    static var sharedInstance = TaskController()
+    static var shared = TaskController()
     
     // source of truth
-    var tasks: [Task] = []
+    //    var tasks: [Task] = []
+    var fetchedResultsController: NSFetchedResultsController<Task>
     
-    var mockTasks: [Task] {
-        let task1 = Task(name: "Do pre-work")
-        let task2 = Task(name: "Finish iOS course", notes: "get badge by graduation day", due: Date())
-        let task3 = Task(name: "Drive to Utah")
-        task3.isComplete = true
-        return [task1, task2, task3]
-    }
-    
+
     init() {
-        tasks = fetchTasks()
+        //        tasks = fetchTasks()
+        
+        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        
+        let resultsController: NSFetchedResultsController<Task> = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.context, sectionNameKeyPath: nil, cacheName: nil)
+        
+        fetchedResultsController = resultsController
+        
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            print("There was a really bad error, man.", error.localizedDescription)
+        }
     }
     
     // MARK: - CRUD Functions
     
     func add(taskWithName name: String, notes: String?, due: Date?){
         
+        let _ = Task(name: name, notes: notes, due: due)
+        saveToPersistentStore()
     }
     
     func update(task: Task, name: String, notes: String?, due: Date?) {
@@ -47,10 +57,24 @@ class TaskController {
     // MARK: - Persistence
     
     func saveToPersistentStore() {
-        
+        do {
+            try CoreDataStack.context.save()
+        } catch {
+            print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+        }
+    }
+    
+    // MARK: - Helper Functions
+    
+    var mockTasks: [Task] {
+        let task1 = Task(name: "Do pre-work")
+        let task2 = Task(name: "Finish iOS course", notes: "get badge by graduation day", due: Date())
+        let task3 = Task(name: "Drive to Utah")
+        task3.isComplete = true
+        return [task1, task2, task3]
     }
     
     func fetchTasks() -> [Task] {
         return mockTasks
     }
-}
+} // end class TaskController

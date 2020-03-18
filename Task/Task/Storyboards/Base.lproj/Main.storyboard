@@ -66,6 +66,7 @@
                                     <outlet property="checkboxButton" destination="m9L-42-1KJ" id="a09-F4-6bq"/>
                                     <outlet property="dueDateLabel" destination="yn3-K4-cK9" id="bR0-PD-M8s"/>
                                     <outlet property="taskNameLabel" destination="2a0-38-Z0Z" id="BiD-2B-ZIa"/>
+                                    <segue destination="drr-mE-DxA" kind="show" id="Fte-bn-kwC"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -239,4 +240,7 @@
     <resources>
         <image name="incomplete" width="512" height="512"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="e7c-gg-2Py"/>
+    </inferredMetricsTieBreakers>
 </document>
