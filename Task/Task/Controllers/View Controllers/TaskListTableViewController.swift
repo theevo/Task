@@ -23,7 +23,6 @@ class TaskListTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return TaskController.shared.tasks.count
         return TaskController.shared.fetchedResultsController.fetchedObjects?.count ?? 0
     }
 
@@ -31,7 +30,6 @@ class TaskListTableViewController: UITableViewController {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as? ButtonTableViewCell else { return UITableViewCell() }
         
-//        let task = TaskController.shared.tasks[indexPath.row]
         let task = TaskController.shared.fetchedResultsController.object(at: indexPath)
         
         cell.setTask(task: task)
@@ -44,11 +42,9 @@ class TaskListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             
-//            let taskToDelete = TaskController.shared.tasks[indexPath.row]
             let taskToDelete = TaskController.shared.fetchedResultsController.object(at: indexPath)
             
             TaskController.shared.remove(task: taskToDelete)
-            tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
     
@@ -57,21 +53,19 @@ class TaskListTableViewController: UITableViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // IIDOO
         
         if segue.identifier == "toTaskDetail" {
             guard let indexPath = tableView.indexPathForSelectedRow,
             let destinationVC = segue.destination as? TaskDetailTableViewController
                 else { return }
                 
-//            let taskToSend = TaskController.shared.tasks[indexPath.row]
             let taskToSend = TaskController.shared.fetchedResultsController.object(at: indexPath)
             destinationVC.taskLandingPad = taskToSend
         }
     }
     
 
-} // end class
+} // end class TaskListTableViewController
 
 
 

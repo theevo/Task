@@ -13,16 +13,14 @@ class TaskController {
     
     // MARK: - Properties
     
-    // singleton
+    // Singleton
     static var shared = TaskController()
     
-    // source of truth
-    //    var tasks: [Task] = []
+    // Source of Truth
     var fetchedResultsController: NSFetchedResultsController<Task>
     
 
     init() {
-        //        tasks = fetchTasks()
         
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
@@ -51,7 +49,8 @@ class TaskController {
     }
     
     func remove(task: Task) {
-        
+        CoreDataStack.context.delete(task)
+        saveToPersistentStore()
     }
     
     // MARK: - Persistence
