@@ -22,7 +22,7 @@ extension Task {
             guard let date = due else { return "no date set" }
             let dateFormatter = DateFormatter()
             dateFormatter.dateStyle = .short
-            dateFormatter.timeStyle = .medium
+            dateFormatter.timeStyle = .short
             return dateFormatter.string(from: date)
         }
     }

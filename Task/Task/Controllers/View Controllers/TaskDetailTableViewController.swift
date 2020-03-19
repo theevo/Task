@@ -13,11 +13,7 @@ class TaskDetailTableViewController: UITableViewController {
     // MARK: - Properties
     
     // Landing Pad
-    var taskLandingPad: Task? {
-        didSet {
-            updateViews()
-        }
-    }
+    var taskLandingPad: Task?
     var dueDateValue: Date?
     
     // MARK: - Outlets
@@ -29,12 +25,14 @@ class TaskDetailTableViewController: UITableViewController {
     
     
     // MARK: - Lifecycle Functions
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        
         //Creating out tap gesture
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(userTappedView))
+        
         //adding our tap gesture to our view
         self.view.addGestureRecognizer(tapGesture)
     }
@@ -47,9 +45,9 @@ class TaskDetailTableViewController: UITableViewController {
         
         // if there's something on the landing pad, update
         if let task = taskLandingPad {
-            TaskController.shared.update(task: task, name: newTaskName, notes: taskNotesTextView.text, due: Date())
+            TaskController.shared.update(task: task, name: newTaskName, notes: taskNotesTextView.text, due: dueDateValue)
         } else { // else, add new Task
-            TaskController.shared.add(taskWithName: newTaskName, notes: taskNotesTextView.text, due: Date())
+            TaskController.shared.add(taskWithName: newTaskName, notes: taskNotesTextView.text, due: dueDateValue)
         }
         navigationController?.popViewController(animated: true)
     }
@@ -73,7 +71,10 @@ class TaskDetailTableViewController: UITableViewController {
     // MARK: - Helper Functions
     
     func updateViews() {
-        guard let taskToDisplay = taskLandingPad else {return}
+        guard let taskToDisplay = taskLandingPad,
+            let taskName = taskToDisplay.name
+            else { return }
+        
         taskNameTextField.text = taskToDisplay.name
         taskNotesTextView.text = taskToDisplay.notes
         dueDateTextField.text = taskToDisplay.due?.stringValue()

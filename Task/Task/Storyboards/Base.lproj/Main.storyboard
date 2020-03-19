@@ -66,7 +66,7 @@
                                     <outlet property="checkboxButton" destination="m9L-42-1KJ" id="a09-F4-6bq"/>
                                     <outlet property="dueDateLabel" destination="yn3-K4-cK9" id="bR0-PD-M8s"/>
                                     <outlet property="taskNameLabel" destination="2a0-38-Z0Z" id="BiD-2B-ZIa"/>
-                                    <segue destination="drr-mE-DxA" kind="show" id="Fte-bn-kwC"/>
+                                    <segue destination="drr-mE-DxA" kind="show" identifier="toTaskDetail" id="Fte-bn-kwC"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -205,7 +205,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u8H-pl-TRy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" id="F6G-69-1eH">
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" id="F6G-69-1eH">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="216"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <connections>
@@ -241,6 +241,6 @@
         <image name="incomplete" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="e7c-gg-2Py"/>
+        <segue reference="Fte-bn-kwC"/>
     </inferredMetricsTieBreakers>
 </document>

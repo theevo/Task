@@ -45,7 +45,10 @@ class TaskController {
     }
     
     func update(task: Task, name: String, notes: String?, due: Date?) {
-        
+        task.name = name
+        task.notes = notes
+        task.due = due
+        saveToPersistentStore()
     }
     
     func remove(task: Task) {
