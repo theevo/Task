@@ -26,4 +26,9 @@ extension Task {
             return dateFormatter.string(from: date)
         }
     }
+    
+    func toggleIsChecked() {
+        self.isComplete = !self.isComplete
+        TaskController.shared.saveToPersistentStore()
+    }
 }

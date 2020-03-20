@@ -28,6 +28,11 @@ class ButtonTableViewCell: UITableViewCell {
     
     // MARK: - Actions
     @IBAction func checkboxTapped(_ sender: Any) {
+        if let task = task {
+            task.toggleIsChecked()
+            updateCheckbox()
+        }
+        
     }
     
     
@@ -43,13 +48,17 @@ class ButtonTableViewCell: UITableViewCell {
         taskNameLabel.text = task.name
         dueDateLabel.text = task.dueDateAsString
         
-        // display checkmark
+        updateCheckbox()
+    }
+    
+    func updateCheckbox() {
+        guard let task = task else { return }
+        
         if task.isComplete {
             checkboxButton.setImage(#imageLiteral(resourceName: "complete"), for: .normal)
         } else {
             checkboxButton.setImage(#imageLiteral(resourceName: "incomplete"), for: .normal)
         }
     }
-    
     
 }
